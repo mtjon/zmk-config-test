@@ -6,25 +6,64 @@
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+#define DEFAULT 0
+//#define SYMBOLS 1
+//#define UTILS   2
+
+#define NONE 0
 
 / {
-    keymap {
-        compatible = "zmk,keymap";
+	keymap {
+		compatible = "zmk,keymap";
 
-        default_layer {
+		default_layer {
 // ---------------------------------------------------------------------------------------------------------------------------------
-// |  ESC  |  Q  |  W  |  E   |  R   |  T   |                                          |  Y   |  U    |  I    |  O   |   P   |   \  |
-// |  TAB  |  A  |  S  |  D   |  F   |  G   |                                          |  H   |  J    |  K    |  L   |   ;   |   '  |
-// | SHIFT |  Z  |  X  |  C   |  V   |  B   | L SHIFT | L SHIFT |  | L SHIFT | L SHIFT |  N   |  M    |  ,    |  .   |   /   | CTRL |
-//                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
-            bindings = <
-    &kp ESC   &kp Q &kp W &kp E &kp R &kp T                                                &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSLH
-    &kp TAB   &kp A &kp S &kp D &kp F &kp G                                                &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-    &kp LSHFT &kp Z &kp X &kp C &kp V &kp B &kp LSHFT &kp LSHFT        &kp LSHFT &kp LSHFT &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RCTRL
-                     &kp LGUI &kp DEL &kp RET &kp SPACE &kp ESC        &kp RET  &kp SPACE  &kp TAB &kp BSPC &kp RALT
-            >;
+// |  ESC  |  Q  |  W  |  F   |  P   |  B   |                                          |  J   |  L    |  U    |  Y   |   ;   | #UL  |
+// | BSPC  |  A  |  R  |  S   |  T   |  G   |                                          |  M   |  N    |  E    |  I   |   O   |   '  |
+// | SHIFT |  Z  |  X  |  C   |  D   |  V   | BT_CLR  | L SHIFT |  | L SHIFT | L SHIFT |  K   |  H    |  ,    |  .   |   /   | CTRL |
+//                     | GUI  | DEL  | RET  |  SPACE  |   TAB   |  |   ESC   |  RET    | #SL  | BSPC  | R-ALT |
+			bindings = <
+	&kp ESC   &kp Q &kp W &kp F &kp P &kp B                                                &kp J &kp L  &kp U     &kp Y   &kp SEMI  &tkp BSLH
+	&kp BSPC  &kp A &kp R &kp S &kp T &kp G                                                &kp M &kp N  &kp E     &kp I   &kp O     &kp SQT
+	&kp LSHFT &kp Z &kp X &kp C &kp D &kp V &bt BT_CLR &kp LSHFT        &kp LSHFT &kp LSHFT &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RCTRL
+	                &kp LGUI &kp DEL &kp RET &kp SPACE &kp TAB          &kp ESC   &kp RET  &mo SYMBOLS &kp BSPC &kp RALT
+			>;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
-        };
-    };
-};
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+		};
+
+//		symbols_layer {
+// ---------------------------------------------------------------------------------------------------------------------------------
+// |  ESC  |  1  |  2  |  3   |  4   |  5   |                                          |  6   |  7    |  8    |  9   |   0   |   \  |
+// |  TAB  |  1  |     |  '   |  ;   |  5   |                                          |  6   |  (    |  [    |  -   |   0   |   '  |
+// | SHIFT |  `  |     |  "   |  :   |      | BT_CLR  | L SHIFT |  | L SHIFT | L SHIFT |      |  )    |  ]    |  =   |   \   | CTRL |
+//                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
+//			bindings = <
+//	&kp ESC   &kp 1 &kp 2 &kp 3 &kp 4 &kp 5                                                &kp 6 &kp 7    &kp 8    &kp 9         &kp 0    &kp BSLH
+//	&kp TAB   &kp 1 &kp R &kp SQT &kp SEMI &kp 5                                           &kp 6 &kp LPAR &kp LBKT &kp KP_MINUS  &kp 0    &kp SQT
+//	&kp LSHFT &kp ` &kp X &kp DQT &kp : &kp V &bt BT_CLR &kp LSHFT     &kp LSHFT &kp LSHFT &kp H &kp RPAR &kp RBKT &kp KP_EQUAL  &kp BSLH &kp RCTRL
+//	                &kp LGUI &kp DEL &kp RET &kp SPACE &kp ESC         &kp RET   &kp SPACE &kp TAB &kp BSPC &kp RALT
+//			>;
+//
+//			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+//		};
+//
+//		utils_layer {
+//// ---------------------------------------------------------------------------------------------------------------------------------
+//// |  BT_CLR  |  1  |  2  |  3   |  4   |  5   |                                          |  6   |  7    |  8    |  9   |   0   |   \  |
+//// |  TAB  |  1  |     |  '   |  ;   |  5   |                                          |  6   |  (    |  [    |  -   |   0   |   '  |
+//// | SHIFT |  `  |     |  "   |  :   |      | L SHIFT | L SHIFT |  | L SHIFT | L SHIFT |      |  )    |  ]    |  =   |   \   | CTRL |
+////                     | GUI  | DEL  | RET  |  SPACE  |   ESC   |  |   RET   |  SPACE  | TAB  | BSPC  | R-ALT |
+//			bindings = <
+//	&bt BT_CLR &kp Q &kp W &kp E &kp R &kp T                                                &kp Y &kp U  &kp I     &kp O   &kp P    &tog UTILS
+//	&kp TAB    &kp A &kp S &kp D &kp F &kp G                                                &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
+//	&kp LSHFT  &kp Z &kp X &kp C &kp V &kp B &bt BT_CLR &kp LSHFT       &kp LSHFT &kp LSHFT &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RCTRL
+//	                  &kp LGUI &kp DEL &kp RET &kp SPACE &kp ESC        &kp RET  &kp SPACE  &kp TAB &kp BSPC &kp RALT
+//			>;
+//
+//			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+//		};
+	};
+}
