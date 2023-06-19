@@ -31,10 +31,10 @@
 
         letter_layer {
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// |  ESC    |  Q        |  W       |  F       |  P        |  B     |                                           |  J     |  L        |  L       |  Y       |   ;       |   \     |
-// | BSPC    |  A/LCTRL  |  R/LALT  |  S/LGUI  |  T/LSHFT  |  G     |                                           |  M     |  N/RSHFT  |  E/RGUI  |  I/RALT  | O/RCTRL   |   '     |
-// | SHIFT   |  Z        |  X       |  C       |  D        |  V     | L SHIFT | L SHIFT |   | L SHIFT | LNPD    |  K     |  H        |  ,       |  .       |   /       | LDEF    |
-//                                  | GUI      | DEL       | LSYM   |  SPACE  |   TAB   |   |   ESC   | RET     | LSYM   |  BSPC     | R-ALT    |
+// |  ESC    |  Q        |  W       |  F       |  P        |   B    |                                           |   J    |  L        |  L       |  Y       |   ;       |   \     |
+// | BSPC    |  A/LCTRL  |  R/LALT  |  S/LGUI  |  T/LSHFT  |   G    |                                           |   M    |  N/RSHFT  |  E/RGUI  |  I/RALT  | O/RCTRL   |   '     |
+// | SHIFT   |  Z        |  X       |  C       |  D        |   V    | L SHIFT | L SHIFT |   | L SHIFT | LNPD    |   K    |  H        |  ,       |  .       |   /       | LDEF    |
+//                                  | GUI      | DEL       |  LSYM  |  SPACE  |   TAB   |   |   ESC   | RET     |  LSYM  |  BSPC     |   R-ALT  |
             bindings = <
     &kp ESC   &kp Q       &kp W      &kp F      &kp P       &kp B                                                &kp J    &kp L       &kp U      &kp Y      &kp SEMI    &kp BSLH
     &kp BSPC  &hm LCTRL A &hm LALT R &hm LGUI S &hm LSHFT T &kp G                                                &kp M    &hm RSHFT N &hm RGUI E &hm RALT I &hm RCTRL O &kp SQT
@@ -46,32 +46,32 @@
         };
 
         symbols_layer {
-// ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-// |  ESC    |  1      |  2   |  3    |  4      |  5      |                                           |  6    |  7         |  8     |  9         |   0    |      |
-// |  TAB    |  1      |      |  '    |  ;      |  5      |                                           |  6    |  (         |  [     |  -         |   0    |      |
-// | SHIFT   |  `      |      |  "    |  :      |         | L SHIFT | L SHIFT |   | L SHIFT | L SHIFT |       |  )         |  ]     |  =         |   \    | LDEF |
-//                            | GUI   | DEL     | LSYM    |  SPACE  |   TAB   |   |   ESC   |  RET    | LSYM  | BSPC       | R-ALT  |
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------
+// |  ESC    |    1    |  2   |   3   |    4    |    5    |                                           |   6    |   7    |   8    |    9    |   0    |        |
+// |  TAB    |    1    |      |   '   |    ;    |    5    |                                           |   6    |   (    |   [    |    -    |   0    |        |
+// | SHIFT   |    `    |      |   "   |    :    |         | L SHIFT | L SHIFT |   | L SHIFT | L SHIFT |        |   )    |   ]    |    =    |   \    |  LDEF  |
+//                            |  GUI  |   DEL   |  LSYM   |  SPACE  |   TAB   |   |   ESC   |  RET    |  LSYM  |  BSPC  | R-ALT  |
             bindings = <
-    &kp ESC   &kp N1    &kp N2 &kp N3   &kp N4    &kp N5                                              &kp N6   &kp N7       &kp N8   &kp N9       &kp N0   &none
-    &kp BSPC  &kp N1    &none  &kp SQT  &kp SEMI  &kp N5                                              &kp N6   &kp KP_LPAR  &kp LBKT &kp KP_MINUS &kp N0   &none
-    &kp LSHFT &kp GRAVE &none  &kp DQT  &kp COLON &none    &kp LSHFT &kp LSHFT    &kp LSHFT &kp LSHFT &none    &kp KP_RPAR  &kp RBKT &kp KP_EQUAL &kp BSLH &to LDEF
-                               &kp LGUI &kp DEL   &mo LSYM &kp SPACE &kp TAB      &kp ESC   &kp RET   &mo LSYM &kp BSPC     &kp RALT
+    &kp ESC   &kp N1    &kp N2 &kp N3   &kp N4    &kp N5                                               &kp N6   &kp N7   &kp N8   &kp N9    &kp N0   &none
+    &kp BSPC  &kp N1    &none  &kp SQT  &kp SEMI  &kp N5                                               &kp N6   &kp LPAR &kp LBKT &kp MINUS &kp N0   &none
+    &kp LSHFT &kp GRAVE &none  &kp DQT  &kp COLON &none    &kp LSHFT &kp LSHFT     &kp LSHFT &kp LSHFT &none    &kp RPAR &kp RBKT &kp EQUAL &kp BSLH &to LDEF
+                               &kp LGUI &kp DEL   &mo LSYM &kp SPACE &kp TAB       &kp ESC   &kp RET   &mo LSYM &kp BSPC &kp RALT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
         numpad_layer {
-// ---------------------------------------------------------------------------------------------------------------------------------------------------------------
-// |  ESC    |  1      |  2   |  3    |  4      |  5      |                                           |  6    |  7         |  8     |  9         |   0    |      |
-// |  TAB    |  1      |      |  '    |  ;      |  5      |                                           |  6    |  (         |  [     |  -         |   0    |      |
-// | SHIFT   |  `      |      |  "    |  :      |         | L SHIFT | L SHIFT |   | L SHIFT | L SHIFT |       |  )         |  ]     |  =         |   \    | LDEF |
-//                            | GUI   | DEL     | LSYM    |  SPACE  |   TAB   |   |   ESC   |  RET    | LSYM  | BSPC       | R-ALT  |
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// |     |     |     |        |       |        |                                           |  /            |    7    |    8    |    9    |     -      |   NLCK   |
+// |     |     |     |        |       |        |                                           |  *            |    4    |    5    |    6    |     +      |          |
+// |     |     |     |        |       |        | L SHIFT | L SHIFT |   | L SHIFT | LNPD    |  .            |    1    |    2    |    3    |     =      |   LDEF   |
+//                   |        |       |        |  SPACE  |   TAB   |   |   ESC   |  RET    | LSYM          |    0    |         |
             bindings = <
-    &kp ESC   &kp N1    &kp N2 &kp N3   &kp N4    &kp N5                                              &kp N6   &kp N7       &kp N8   &kp N9       &kp N0   &none
-    &kp BSPC  &kp N1    &none  &kp SQT  &kp SEMI  &kp N5                                              &kp N6   &kp KP_LPAR  &kp LBKT &kp KP_MINUS &kp N0   &none
-    &kp LSHFT &kp GRAVE &none  &kp DQT  &kp COLON &none    &kp LSHFT &kp LSHFT    &kp LSHFT &kp LSHFT &none    &kp KP_RPAR  &kp RBKT &kp KP_EQUAL &kp BSLH &to LDEF
-                               &kp LGUI &kp DEL   &mo LSYM &kp SPACE &kp TAB      &kp ESC   &kp RET   &mo LSYM &kp BSPC     &kp RALT
+    &none &none &none &none    &none   &none                                                &kp KP_DIVIDE   &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_MINUS &kp KP_NUM
+    &none &none &none &none    &none   &none                                                &kp KP_MULTIPLY &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_PLUS  &none
+    &none &none &none &none    &none   &none    &kp LSHFT &kp LSHFT     &kp LSHFT &tog LNPD &kp KP_DOT      &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_EQUAL &to LDEF
+                      &kp LGUI &kp DEL &mo LSYM &kp SPACE &kp TAB       &kp ESC   &kp RET   &kp TAB         &kp KP_N0 &none
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
