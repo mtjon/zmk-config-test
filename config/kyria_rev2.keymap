@@ -16,7 +16,7 @@
         compatible = "zmk,behavior-hold-tap";
         label = "HOMEROW_MOD";
         #binding-cells = <2>;
-        tapping_term_ms = <200>;
+        tapping_term_ms = <150>; // <200>;
         quick_tap_ms = <0>;
         flavor = "tap-preferred"; // "balanced";
         bindings = <&kp>, <&kp>;
@@ -27,16 +27,16 @@
         compatible = "zmk,keymap";
 
         letter_layer {
-// ----------------------------------------------------------------------------------------------------------------------------------
-// |  ESC  |  Q        |  W  |  F   |  P   |  B   |                                          |  J   |  L    |  L    |  Y   |   ;   |   \  |
-// | BSPC  |  A/LCTRL  |  R  |  S   |  T   |  G   |                                          |  M   |  N    |  E    |  I   |   O   |   '  |
-// | SHIFT |  Z        |  X  |  C   |  D   |  V   | L SHIFT | L SHIFT |  | L SHIFT | L SHIFT |  K   |  H    |  ,    |  .   |   /   | CTRL |
-//                     | GUI  | DEL  | LSYM |  SPACE  |   TAB   |  |   ESC   |  RET    | LSYM | BSPC  | R-ALT |
+// -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// |  ESC    |  Q        |  W       |  F       |  P        |  B     |                                           |  J     |  L        |  L       |  Y       |   ;       |   \     |
+// | BSPC    |  A/LCTRL  |  R/LALT  |  S/LGUI  |  T/LSHFT  |  G     |                                           |  M     |  N/RSHFT  |  E/RGUI  |  I/RALT  | O/RCTRL   |   '     |
+// | SHIFT   |  Z        |  X       |  C       |  D        |  V     | L SHIFT | L SHIFT |   | L SHIFT | L SHIFT |  K     |  H        |  ,       |  .       |   /       | CTRL    |
+//                                  | GUI      | DEL       | LSYM   |  SPACE  |   TAB   |   |   ESC   | RET     | LSYM   |  BSPC     | R-ALT    |
             bindings = <
-    &kp ESC   &kp Q       &kp W &kp F &kp P &kp B                                                &kp J   &kp L    &kp U     &kp Y   &kp SEMI &kp BSLH
-    &kp BSPC  &hm LCTRL A &hm LALT R &hm LGUI S &hm LSHFT T &kp G                                                &kp M   &kp N    &kp E     &kp I   &kp O    &kp SQT
-    &kp LSHFT &kp Z       &kp X &kp C &kp D &kp V &kp LSHFT &kp LSHFT        &kp LSHFT &kp LSHFT &kp K   &kp H    &kp COMMA &kp DOT &kp FSLH &kp RCTRL
-                          &kp LGUI &kp DEL &mo LSYM &kp SPACE &kp TAB     &kp ESC   &kp RET   &mo LSYM &kp BSPC     &kp RALT
+    &kp ESC   &kp Q       &kp W      &kp F      &kp P       &kp B                                                &kp J    &kp L       &kp U      &kp Y      &kp SEMI    &kp BSLH
+    &kp BSPC  &hm LCTRL A &hm LALT R &hm LGUI S &hm LSHFT T &kp G                                                &kp M    &hm RSHFT N &hm RGUI E &hm RALT I &hm RCTRL O &kp SQT
+    &kp LSHFT &kp Z       &kp X      &kp C      &kp D       &kp V    &kp LSHFT &kp LSHFT     &kp LSHFT &kp LSHFT &kp K    &kp H       &kp COMMA  &kp DOT    &kp FSLH    &kp RCTRL
+                                     &kp LGUI   &kp DEL     &mo LSYM &kp SPACE &kp TAB       &kp ESC   &kp RET   &mo LSYM &kp BSPC    &kp RALT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -44,15 +44,15 @@
 
         symbols_layer {
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------
-// |  ESC    |  1      |  2   |  3    |  4      |  5      |                                          |  6    |  7         |  8     |  9         |   0    |     |
-// |  TAB    |  1      |      |  '    |  ;      |  5      |                                          |  6    |  (         |  [     |  -         |   0    |     |
-// | SHIFT   |  `      |      |  "    |  :      |         | L SHIFT | L SHIFT |  | L SHIFT | L SHIFT |       |  )         |  ]     |  =         |   \    |     |
-//                            | GUI   | DEL     | LSYM    |  SPACE  |   TAB   |  |   ESC   |  RET    | LSYM  | BSPC       | R-ALT  |
+// |  ESC    |  1      |  2   |  3    |  4      |  5      |                                           |  6    |  7         |  8     |  9         |   0    |     |
+// |  TAB    |  1      |      |  '    |  ;      |  5      |                                           |  6    |  (         |  [     |  -         |   0    |     |
+// | SHIFT   |  `      |      |  "    |  :      |         | L SHIFT | L SHIFT |   | L SHIFT | L SHIFT |       |  )         |  ]     |  =         |   \    |     |
+//                            | GUI   | DEL     | LSYM    |  SPACE  |   TAB   |   |   ESC   |  RET    | LSYM  | BSPC       | R-ALT  |
             bindings = <
-    &kp ESC   &kp N1    &kp N2 &kp N3   &kp N4    &kp N5                                             &kp N6   &kp N7       &kp N8   &kp N9       &kp N0   &none
-    &kp BSPC  &kp N1    &none  &kp SQT  &kp SEMI  &kp N5                                             &kp N6   &kp KP_LPAR  &kp LBKT &kp KP_MINUS &kp N0   &none
-    &kp LSHFT &kp GRAVE &none  &kp DQT  &kp COLON &none    &kp LSHFT &kp LSHFT   &kp LSHFT &kp LSHFT &none    &kp KP_RPAR  &kp RBKT &kp KP_EQUAL &kp BSLH &none
-                               &kp LGUI &kp DEL   &mo LSYM &kp SPACE &kp TAB     &kp ESC   &kp RET   &mo LSYM &kp BSPC     &kp RALT
+    &kp ESC   &kp N1    &kp N2 &kp N3   &kp N4    &kp N5                                              &kp N6   &kp N7       &kp N8   &kp N9       &kp N0   &none
+    &kp BSPC  &kp N1    &none  &kp SQT  &kp SEMI  &kp N5                                              &kp N6   &kp KP_LPAR  &kp LBKT &kp KP_MINUS &kp N0   &none
+    &kp LSHFT &kp GRAVE &none  &kp DQT  &kp COLON &none    &kp LSHFT &kp LSHFT    &kp LSHFT &kp LSHFT &none    &kp KP_RPAR  &kp RBKT &kp KP_EQUAL &kp BSLH &none
+                               &kp LGUI &kp DEL   &mo LSYM &kp SPACE &kp TAB      &kp ESC   &kp RET   &mo LSYM &kp BSPC     &kp RALT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
