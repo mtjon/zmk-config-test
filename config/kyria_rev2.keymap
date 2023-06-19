@@ -21,10 +21,10 @@
 // | SHIFT |  Z  |  X  |  C   |  D   |  V   | L SHIFT | L SHIFT |  | L SHIFT | L SHIFT |  K   |  H    |  ,    |  .   |   /   | CTRL |
 //                     | GUI  | DEL  | LSYM |  SPACE  |   TAB   |  |   ESC   |  RET    | LSYM | BSPC  | R-ALT |
             bindings = <
-    &kp ESC   &kp Q &kp W &kp F &kp P &kp B                                                &kp J   &kp L    &kp U     &kp Y   &kp SEMI &tog LSYM
+    &kp ESC   &kp Q &kp W &kp F &kp P &kp B                                                &kp J   &kp L    &kp U     &kp Y   &kp SEMI &kp BSLH
     &kp BSPC  &kp A &kp R &kp S &kp T &kp G                                                &kp M   &kp N    &kp E     &kp I   &kp O    &kp SQT
     &kp LSHFT &kp Z &kp X &kp C &kp D &kp V &kp LSHFT &kp LSHFT        &kp LSHFT &kp LSHFT &kp K   &kp H    &kp COMMA &kp DOT &kp FSLH &kp RCTRL
-                     &kp LGUI &kp DEL &kp RET &kp SPACE &kp TAB        &kp ESC   &kp RET   &kp TAB &kp BSPC &kp RALT
+                    &kp LGUI &kp DEL &mo LSYM &kp SPACE &kp TAB     &kp ESC   &kp RET   &mo LSYM &kp BSPC     &kp RALT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
